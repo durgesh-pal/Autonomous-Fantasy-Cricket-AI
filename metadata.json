@@ -1,0 +1,8 @@
+{
+  "name": "AutoManager - Fantasy Cricket",
+  "description": "An autonomous fantasy-cricket manager that builds and adapts teams based on user preferences, constraints, and real-time match context.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
