@@ -1,0 +1,45 @@
+AutoManager: Autonomous Fantasy Cricket AI
+Presentation Summary & Talking Points
+
+---
+
+SLIDE 1: Introduction & Problem Statement
+• Title: AutoManager - Autonomous Fantasy Cricket AI
+• The Challenge: Building an autonomous fantasy-cricket manager that builds and adapts a team based on user objectives, under strict budget (max 100 credits), squad (11 players), role constraints, and changing match contexts.
+• The Goal: The agent must not just build a team statically, but monitor conditions (injuries, weather, pitch) and autonomously make justified swaps.
+
+---
+
+SLIDE 2: The Solution & Architecture
+• Full-Stack Implementation: Built using React (Frontend) and Node.js/Express (Backend).
+• AI Integration: Powered by the Google Gemini API (gemini-3.6-flash model) using structural prompting and JSON schema enforcement to ensure deterministic, actionable outputs.
+• No Real-Money Actions: Uses a simulated sandbox environment for player stats, scoring, and context updates.
+
+---
+
+SLIDE 3: Core Agentic Workflow
+1. Interpret: Reads user preferences (e.g., "Balanced", "Maximize Batting").
+2. Retrieve & Contextualize: Fetches player stats and current match environment (weather, pitch).
+3. Generate & Validate: Drafts an optimal 11-player squad that strictly adheres to the budget and role rules.
+4. Simulate: Evaluates the candidate team's projected score using a custom scoring algorithm.
+5. React: Autonomously rebuilds the relevant parts of the team when the environment changes (e.g., a player gets injured).
+
+---
+
+SLIDE 4: Key Features Demo Highlights
+• Environment Simulator: A UI panel to manually trigger external events like "Rain Delay" or "Player Injury".
+• Reactive Autonomy: Showcasing how the agent instantly wakes up upon a context change, evaluates the new constraints, drops the injured player, and drafts a replacement within budget.
+• Transparent "Agent Thoughts": A live log panel displaying the AI's step-by-step reasoning and actions taken, providing full explainability for its decisions.
+• Manual Overrides: Users can browse the player pool and manually add/drop players, interacting collaboratively with the agent.
+
+---
+
+SLIDE 5: Evaluation & Technical Highlights
+• Agentic Workflow (25%): The AI fully manages the end-to-end drafting and updating loop.
+• Adaptation (15%): Demonstrates robust failure recovery by gracefully handling sudden injuries and pitch changes.
+• UX & Prototype Functionality (10%): A clean, responsive, Tailwind-styled dashboard with smooth animations and clear constraint-violation warnings.
+
+---
+
+SLIDE 6: Conclusion
+• AutoManager proves the viability of LLMs not just as chatbots, but as proactive, autonomous agents capable of managing complex state, adhering to strict mathematical constraints, and reacting to real-time asynchronous events in a sports simulation context.
