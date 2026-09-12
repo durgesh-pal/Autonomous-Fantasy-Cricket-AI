@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoManager Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f8fafc; 
+            scroll-behavior: smooth;
+        }
+        .slide { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 2rem; 
+        }
+        .slide-content { 
+            max-width: 900px; 
+            width: 100%; 
+            background: white; 
+            padding: 4rem; 
+            border-radius: 1.5rem; 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); 
+            border: 1px solid #e2e8f0;
+        }
+        h1 { 
+            color: #1e293b; 
+            font-size: 2.25rem; 
+            font-weight: 700; 
+            margin-bottom: 1.5rem; 
+            border-bottom: 2px solid #e2e8f0; 
+            padding-bottom: 1rem; 
+        }
+        ul { 
+            list-style-type: none; 
+            padding-left: 0; 
+            color: #334155; 
+            font-size: 1.125rem; 
+            line-height: 1.75; 
+        }
+        li { 
+            margin-bottom: 1.25rem; 
+            position: relative;
+            padding-left: 1.75rem;
+        }
+        li::before {
+            content: "•";
+            color: #4f46e5;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .highlight { 
+            color: #4f46e5; 
+            font-weight: 600; 
+        }
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .nav-dots a {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            transition: background-color 0.3s;
+        }
+        .nav-dots a:hover {
+            background-color: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="nav-dots">
+        <a href="#slide-1" title="Title"></a>
+        <a href="#slide-2" title="Introduction"></a>
+        <a href="#slide-3" title="Architecture"></a>
+        <a href="#slide-4" title="Workflow"></a>
+        <a href="#slide-5" title="Features"></a>
+        <a href="#slide-6" title="Evaluation"></a>
+        <a href="#slide-7" title="Conclusion"></a>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide bg-slate-900" id="slide-1">
+        <div class="slide-content text-center" style="background: transparent; border: none; box-shadow: none;">
+            <h1 style="border: none; font-size: 4rem; color: #fff; margin-bottom: 0;">AutoManager</h1>
+            <h2 style="font-size: 2rem; color: #818cf8; margin-top: 1rem; font-weight: 600;">Autonomous Fantasy Cricket AI</h2>
+            <p class="text-xl text-slate-400 mt-6">Presentation Summary & Talking Points</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Introduction -->
+    <div class="slide" id="slide-2">
+        <div class="slide-content">
+            <h1>1. Introduction & Problem Statement</h1>
+            <ul>
+                <li><span class="highlight">The Challenge:</span> Building an autonomous fantasy-cricket manager that constructs and adapts a team based on user objectives, under strict budget (max 100 credits), squad (11 players), role constraints, and changing match contexts.</li>
+                <li><span class="highlight">The Goal:</span> The agent must not just build a team statically, but continuously monitor conditions (e.g., injuries, weather, pitch) and autonomously make justified swaps.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Architecture -->
+    <div class="slide bg-slate-50" id="slide-3">
+        <div class="slide-content">
+            <h1>2. The Solution & Architecture</h1>
+            <ul>
+                <li><span class="highlight">Full-Stack Implementation:</span> Built seamlessly using React (Frontend) and Node.js/Express (Backend).</li>
+                <li><span class="highlight">AI Integration:</span> Powered by the Google Gemini API (<code class="bg-indigo-50 text-indigo-700 px-2 py-1 rounded">gemini-3.6-flash</code>) using structural prompting and JSON schema enforcement to ensure deterministic, actionable outputs.</li>
+                <li><span class="highlight">Simulated Sandbox:</span> No real-money actions. Uses a simulated sandbox environment for player stats, scoring rules, and dynamic context updates.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 4: Workflow -->
+    <div class="slide" id="slide-4">
+        <div class="slide-content">
+            <h1>3. Core Agentic Workflow</h1>
+            <ul>
+                <li><span class="highlight">1. Interpret:</span> Reads user preferences (e.g., "Balanced", "Maximize Batting").</li>
+                <li><span class="highlight">2. Retrieve & Contextualize:</span> Fetches player statistics and the current match environment (weather, pitch).</li>
+                <li><span class="highlight">3. Generate & Validate:</span> Drafts an optimal 11-player squad that strictly adheres to the budget and role rules.</li>
+                <li><span class="highlight">4. Simulate:</span> Evaluates the candidate team's projected score using a custom scoring algorithm.</li>
+                <li><span class="highlight">5. React:</span> Autonomously rebuilds the relevant parts of the team when the environment changes (e.g., swapping out an injured player).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 5: Features -->
+    <div class="slide bg-slate-50" id="slide-5">
+        <div class="slide-content">
+            <h1>4. Key Features & Demo Highlights</h1>
+            <ul>
+                <li><span class="highlight">Environment Simulator:</span> A UI panel to manually trigger external events like "Rain Delay" or "Player Injury".</li>
+                <li><span class="highlight">Reactive Autonomy:</span> Showcasing how the agent instantly wakes up upon a context change, evaluates the new constraints, drops the injured player, and drafts a replacement within budget.</li>
+                <li><span class="highlight">Transparent "Agent Thoughts":</span> A live log panel displaying the AI's step-by-step reasoning and actions taken, providing full explainability for its decisions.</li>
+                <li><span class="highlight">Manual Overrides:</span> Users can browse the player pool and manually add/drop players, interacting collaboratively with the agent.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: Evaluation -->
+    <div class="slide" id="slide-6">
+        <div class="slide-content">
+            <h1>5. Evaluation & Technical Highlights</h1>
+            <ul>
+                <li><span class="highlight">Agentic Workflow (25%):</span> The AI fully manages the end-to-end drafting and updating loop without constant hand-holding.</li>
+                <li><span class="highlight">Adaptation (15%):</span> Demonstrates robust failure recovery by gracefully handling sudden injuries and pitch changes.</li>
+                <li><span class="highlight">UX & Prototype Functionality (10%):</span> A clean, responsive, Tailwind-styled dashboard with smooth animations and clear constraint-violation warnings.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 7: Conclusion -->
+    <div class="slide bg-indigo-900" id="slide-7">
+        <div class="slide-content text-center" style="background: transparent; border: none; box-shadow: none;">
+            <h1 style="border: none; color: white;">Conclusion</h1>
+            <p class="text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed">
+                AutoManager proves the viability of LLMs not just as chatbots, but as proactive, autonomous agents capable of managing complex state, adhering to strict mathematical constraints, and reacting to real-time asynchronous events in a sports simulation context.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
